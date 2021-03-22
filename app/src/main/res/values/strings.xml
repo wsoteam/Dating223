@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Dating223</string>
+
+    <string name="ibLike_button">Like</string>
+    <string name="ibDislike_button">Dislike</string>
+
+
 </resources>

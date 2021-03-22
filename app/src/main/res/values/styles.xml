@@ -7,4 +7,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SplashActivityStyle" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">#e496a4</item>
+    </style>
+
+    <style name="MainActivityStyle" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">#e496a4</item>
+    </style>
+
 </resources>

@@ -14,6 +14,11 @@
 
     <style name="MainActivityStyle" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">#959696</item>
+    </style>
+
+    <style name="InfoActivityStyle" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
         <item name="colorPrimaryDark">#e496a4</item>
     </style>
 

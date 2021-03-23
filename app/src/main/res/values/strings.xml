@@ -1,9 +1,26 @@
 <resources>
     <string name="app_name">Dating223</string>
 
-    <string name="ibLike_button">Like</string>
-    <string name="ibDislike_button">Dislike</string>
-    <string name="ibClose_button">Close</string>
+
+    <string-array name="names">
+        <item>Melissa, 20</item>
+        <item>Gloria, 23</item>
+        <item>Jen, 21</item>
+        <item>Alice, 20</item>
+        <item>Harper, 20</item>
+    </string-array>
+
+
+    <integer-array name="screen_signs">
+        <item>@drawable/rectangle_1</item>
+        <item>@drawable/rectangle_2</item>
+        <item>@drawable/rectangle_3</item>
+        <item>@drawable/rectangle_4</item>
+        <item>@drawable/rectangle_5</item>
+    </integer-array>
+
+
+
 
 
 </resources>

@@ -19,7 +19,7 @@
 
 
         <ImageView
-            android:id="@+id/ibClose_button"
+            android:id="@+id/ivRestart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
@@ -48,8 +48,67 @@
             android:textColor="#ffffff"
             android:text="Date me"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Login" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffffff"
+            android:text="user113402" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="35dp"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:text="Password" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffffff"
+            android:text="blue1331green123" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="60dp"
+            android:maxWidth="270dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="Your activation link has been sent in your mail"
             />
+
+
 
     </LinearLayout>
 

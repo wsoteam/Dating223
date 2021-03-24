@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Dating223.iml" filepath="$PROJECT_DIR$/.idea/modules/Dating223.iml" group="Dating223" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Dating223-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Dating223-app.iml" group="Dating223/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Dating223/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/projects-Dating223.iml" filepath="$PROJECT_DIR$/.idea/modules/projects-Dating223.iml" group="Dating223" />
     </modules>
   </component>
 </project>

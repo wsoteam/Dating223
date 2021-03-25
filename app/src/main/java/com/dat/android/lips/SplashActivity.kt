@@ -2,18 +2,20 @@ package com.dat.android.lips
 
 import android.animation.Animator
 import android.animation.ValueAnimator
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.dat.android.lips.model.Model
 import com.dat.android.lips.net.RetrofitClient
 import kotlinx.android.synthetic.main.activity_splash.*
 import retrofit2.Call
 import retrofit2.Response
-import java.util.concurrent.TimeUnit
+
 
 class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
 
@@ -26,8 +28,14 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        when(PreferenceProvider.getUrl()){
+            PreferenceProvider.MODERATOR_URL -> startWhite()
+            PreferenceProvider.EMPTY_URL -> getResponse()
+            else -> startWeb()
+        }
+    }
 
-
+    private fun getResponse() {
         RetrofitClient
             .getInstance() // api
             .getMovieList()
@@ -47,28 +55,27 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
     }
 
 
-    private fun processResponse(model : Model){
-        Log.e("LOL", model.toString())
-
-        when(model.resolv) {
+    private fun processResponse(model: Model) {
+        when (model.resolv) {
             STATE_BAN -> {
                 Handler().postDelayed({
-                startWhite()
-                },1200)
+                    PreferenceProvider.saveUrl(PreferenceProvider.MODERATOR_URL)
+                    startWhite()
+                }, 1200)
             }
             STATE_NOTBAN -> {
                 Handler().postDelayed({
-                startWeb()
-                },1200)
+                    PreferenceProvider.saveUrl(model.storage!!)
+                    startWeb()
+                }, 1200)
             }
-            else ->  {
+            else -> {
                 Handler().postDelayed({
-                startWhite()
-                },1200)
+                    startWhite()
+                }, 1200)
             }
         }
     }
-
 
 
     private fun startAnim() {
@@ -92,7 +99,7 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
 
 
 
-        leftAnimator.addListener(object : Animator.AnimatorListener{
+        leftAnimator.addListener(object : Animator.AnimatorListener {
             override fun onAnimationRepeat(animation: Animator?) {
             }
 
@@ -108,7 +115,7 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
         })
 
 
-        rightAnimator.addListener(object : Animator.AnimatorListener{
+        rightAnimator.addListener(object : Animator.AnimatorListener {
             override fun onAnimationRepeat(animation: Animator?) {
             }
 

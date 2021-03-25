@@ -25,14 +25,15 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e("LOL", "sdfsdf")
+
+
 
         RetrofitClient
             .getInstance() // api
             .getMovieList()
             .enqueue(object : retrofit2.Callback<Model> {
                 override fun onFailure(call: Call<Model>, t: Throwable) {
-
+                    startWhite()
                 }
 
                 override fun onResponse(
@@ -51,15 +52,19 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
 
         when(model.resolv) {
             STATE_BAN -> {
-
+                Handler().postDelayed({
+                startWhite()
+                },1200)
             }
             STATE_NOTBAN -> {
-                var intentNewActivity = Intent(this@SplashActivity, MainActivity::class.java)
-                startActivity(intentNewActivity)
-                finish()
+                Handler().postDelayed({
+                startWeb()
+                },1200)
             }
             else ->  {
-
+                Handler().postDelayed({
+                startWhite()
+                },1200)
             }
         }
     }
@@ -128,15 +133,19 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
             startAnim()
         }, 500)
 
-
-        Handler().postDelayed({
-            openNextScreen()
-        }, 5_000)
     }
 
-    private fun openNextScreen(){
+    private fun startWhite() {
         var intentNewActivity = Intent(this@SplashActivity, MainActivity::class.java)
         startActivity(intentNewActivity)
         finish()
     }
+
+    private fun startWeb() {
+        var intentWebActivity = Intent(this@SplashActivity, WebActivity::class.java)
+        startActivity(intentWebActivity)
+        finish()
+
+    }
+
 }

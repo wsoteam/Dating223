@@ -6,8 +6,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
+import com.dat.android.lips.model.Model
+import com.dat.android.lips.net.RetrofitClient
 import kotlinx.android.synthetic.main.activity_splash.*
+import retrofit2.Call
+import retrofit2.Response
 import java.util.concurrent.TimeUnit
 
 class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
@@ -15,10 +20,48 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
     val LEFT_ROTATION = 13f
     val RIGHT_ROTATION = -13f
     val START_ROTATION = 0f
+    val STATE_BAN = 0
+    val STATE_NOTBAN = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.e("LOL", "sdfsdf")
 
+        RetrofitClient
+            .getInstance() // api
+            .getMovieList()
+            .enqueue(object : retrofit2.Callback<Model> {
+                override fun onFailure(call: Call<Model>, t: Throwable) {
+
+                }
+
+                override fun onResponse(
+                    call: Call<Model>,
+                    response: Response<Model>
+                ) {
+                    var model = response.body()
+                    processResponse(model!!)
+                }
+            })
+    }
+
+
+    private fun processResponse(model : Model){
+        Log.e("LOL", model.toString())
+
+        when(model.resolv) {
+            STATE_BAN -> {
+
+            }
+            STATE_NOTBAN -> {
+                var intentNewActivity = Intent(this@SplashActivity, MainActivity::class.java)
+                startActivity(intentNewActivity)
+                finish()
+            }
+            else ->  {
+
+            }
+        }
     }
 
 
@@ -88,7 +131,7 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
 
         Handler().postDelayed({
             openNextScreen()
-        }, 10000)
+        }, 5_000)
     }
 
     private fun openNextScreen(){

@@ -1,9 +1,11 @@
-package com.dat.android.lips
+package com.dat.android.lips.presentation.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
+import com.dat.android.lips.R
+import com.dat.android.lips.presentation.InfoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

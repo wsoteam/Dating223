@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".WebActivity"></activity>
+        <activity android:name=".presentation.black.WebActivity"></activity>
         <activity
-            android:name=".InfoActivity"
+            android:name=".presentation.InfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/InfoActivityStyle"></activity>
         <activity
-            android:name=".SplashActivity"
+            android:name=".presentation.splash.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashActivityStyle">
             <intent-filter>
@@ -29,9 +29,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.main.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MainActivityStyle"></activity>
+
+        <receiver android:name=".utils.notification.AlarmReceiver" />
     </application>
 
 </manifest>

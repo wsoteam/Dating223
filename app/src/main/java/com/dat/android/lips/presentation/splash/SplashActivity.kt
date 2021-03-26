@@ -1,17 +1,18 @@
-package com.dat.android.lips
+package com.dat.android.lips.presentation.splash
 
 import android.animation.Animator
 import android.animation.ValueAnimator
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.dat.android.lips.R
+import com.dat.android.lips.presentation.black.WebActivity
 import com.dat.android.lips.model.Model
 import com.dat.android.lips.net.RetrofitClient
+import com.dat.android.lips.presentation.main.MainActivity
+import com.dat.android.lips.utils.PreferenceProvider
+import com.dat.android.lips.utils.notification.NotifManager
 import kotlinx.android.synthetic.main.activity_splash.*
 import retrofit2.Call
 import retrofit2.Response
@@ -27,12 +28,11 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        when(PreferenceProvider.getUrl()){
-            PreferenceProvider.MODERATOR_URL -> startWhite()
-            PreferenceProvider.EMPTY_URL -> getResponse()
-            else -> startWeb()
+        if (PreferenceProvider.getAlarmState() == PreferenceProvider.STATE_NOT_SET_ALARM){
+            NotifManager.setAlarm(this)
+            PreferenceProvider.setAlarmState(PreferenceProvider.STATE_SET_ALARM)
         }
+        getResponse()
     }
 
     private fun getResponse() {
@@ -59,7 +59,8 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
         when (model.resolv) {
             STATE_BAN -> {
                 Handler().postDelayed({
-                    PreferenceProvider.saveUrl(PreferenceProvider.MODERATOR_URL)
+                    PreferenceProvider.saveUrl(
+                        PreferenceProvider.MODERATOR_URL)
                     startWhite()
                 }, 1200)
             }

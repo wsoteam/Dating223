@@ -1,4 +1,4 @@
-package com.dat.android.lips
+package com.dat.android.lips.presentation.splash
 
 import androidx.lifecycle.ViewModel
 

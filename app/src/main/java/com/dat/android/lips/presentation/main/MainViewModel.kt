@@ -1,4 +1,4 @@
-package com.dat.android.lips
+package com.dat.android.lips.presentation.main
 
 import androidx.lifecycle.ViewModel
 

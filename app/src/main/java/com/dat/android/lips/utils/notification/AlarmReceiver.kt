@@ -33,8 +33,8 @@ class AlarmReceiver : BroadcastReceiver() {
 
         val builder = Notification.Builder(context)
 
-        val notification = builder.setContentTitle("Title")
-            .setContentText(context!!.getString(R.string.))
+        val notification = builder.setContentTitle("")
+            .setContentText("")
             .setAutoCancel(true)
             .setVibrate(VIBRATE_PATTERN)
             .setSmallIcon(R.drawable.ic_lips_img)

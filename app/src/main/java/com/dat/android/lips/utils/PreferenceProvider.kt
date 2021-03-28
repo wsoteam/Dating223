@@ -14,6 +14,8 @@ object PreferenceProvider {
     const val STATE_SET_ALARM = "STATE_SET_ALARM"
     const val STATE_NOT_SET_ALARM = "STATE_NOT_SET_ALARM"
 
+    private const val KEY_LAST_URL = "KEY_LAST_URL"
+
 
     var sp: SharedPreferences =
         App.getInstance()
@@ -49,5 +51,20 @@ object PreferenceProvider {
             STATE_NOT_SET_ALARM
         )!!
         return state
+    }
+
+    fun setLastURL(url: String) {
+        editor.putString(
+            KEY_LAST_URL, url
+        )
+        editor.commit()
+    }
+
+    fun getLastURL(): String {
+        val url = sp.getString(
+            KEY_LAST_URL,
+            ""
+        )!!
+        return url
     }
 }

@@ -1,8 +1,10 @@
 package com.dat.android.lips.utils
 
+import android.app.Notification
 import android.content.Context
 import android.content.SharedPreferences
 import com.dat.android.lips.App
+import com.dat.android.lips.R
 
 object PreferenceProvider {
 
@@ -13,6 +15,8 @@ object PreferenceProvider {
     private const val KEY_ALARM = "KEY_ALARM"
     const val STATE_SET_ALARM = "STATE_SET_ALARM"
     const val STATE_NOT_SET_ALARM = "STATE_NOT_SET_ALARM"
+
+    private const val KEY_TITLE = "KEY_TITLE"
 
 
     var sp: SharedPreferences =
@@ -49,5 +53,15 @@ object PreferenceProvider {
             STATE_NOT_SET_ALARM
         )!!
         return state
+    }
+
+    fun saveNotifCounter(counter: Int) {
+        editor.putInt(KEY_TITLE, counter)
+        editor.commit()
+    }
+
+    fun getNotifCounter(): Int {
+        val notification = sp.getInt(KEY_TITLE, 0)!!
+        return notification
     }
 }

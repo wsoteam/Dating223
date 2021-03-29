@@ -19,5 +19,15 @@
         <item>@drawable/rectangle_5</item>
     </integer-array>
 
+    <string-array name="notifTitle" >
+        <item>❤️Hello!❤</item>
+        <item>❤️How are you ?❤</item>
+    </string-array>
+
+    <string-array name="notifText" >
+        <item>You have a new message</item>
+        <item>Check Your Messages</item>
+    </string-array>
+
 
 </resources>

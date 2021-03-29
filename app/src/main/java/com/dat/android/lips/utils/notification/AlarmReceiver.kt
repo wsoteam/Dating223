@@ -12,10 +12,12 @@ import androidx.core.app.NotificationCompat
 import com.dat.android.lips.App
 import com.dat.android.lips.R
 import com.dat.android.lips.presentation.splash.SplashActivity
+import com.dat.android.lips.utils.PreferenceProvider
 
 class AlarmReceiver : BroadcastReceiver() {
 
-    private val CHANNEL_ID =  App.getInstance().applicationContext.packageName // id приложения (build.gradle)
+    private val CHANNEL_ID =
+        App.getInstance().applicationContext.packageName // id приложения (build.gradle)
 
 
     override fun onReceive(context: Context?, p1: Intent?) {
@@ -33,8 +35,21 @@ class AlarmReceiver : BroadcastReceiver() {
 
         val builder = Notification.Builder(context)
 
-        val notification = builder.setContentTitle("Title")
-            .setContentText(context!!.getString(R.string.))
+
+        var counter = PreferenceProvider.getNotifCounter()
+        var title = context!!.resources.getStringArray(R.array.notifTitle)[counter]
+        var text = context!!.resources.getStringArray(R.array.notifText)[counter]
+
+        var size = context!!.resources.getStringArray(R.array.notifTitle).size
+        if (counter >= size - 1) {
+            counter = 0
+        } else {
+            counter++
+        }
+        PreferenceProvider.saveNotifCounter(counter)
+
+        val notification = builder.setContentTitle(title)
+            .setContentText(text)
             .setAutoCancel(true)
             .setVibrate(VIBRATE_PATTERN)
             .setSmallIcon(R.drawable.ic_lips_img)

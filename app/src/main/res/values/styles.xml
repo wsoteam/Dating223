@@ -12,6 +12,11 @@
         <item name="colorPrimaryDark">#e496a4</item>
     </style>
 
+    <style name="Web" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">#FFFFFF</item>
+    </style>
+
     <style name="MainActivityStyle" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimaryDark">#959696</item>
